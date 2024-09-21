@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "180311069698",
+    "project_id": "soft-llama",
+    "storage_bucket": "soft-llama.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180311069698:android:fdb4350d5d87c5fb18431b",
+        "android_client_info": {
+          "package_name": "com.example.soft_llama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzwZSGxtQRpjvqPXZ1qhI9sXQzhn71DU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
