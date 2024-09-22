@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:soft_llama/main/main_page.dart';
 import 'auth_gate.dart';
 import 'services.dart';
 import 'widgets/widgets.dart';
@@ -19,17 +18,11 @@ class _SignupScreenState extends State<SignupScreen> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   Color? _textColor;
-  Color? _textColor2;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _textColor = Theme
-        .of(context)
-        .textTheme
-        .bodyMedium
-        ?.color;
-    _textColor2 = Theme
         .of(context)
         .textTheme
         .bodyMedium

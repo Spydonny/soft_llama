@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'auth_gate.dart';
 import 'services.dart';
-import '../main/main_page.dart';
 // import 'signup_screen.dart';
 import 'widgets/widgets.dart';
 
@@ -16,17 +15,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   Color? _textColor1;
-  Color? _textColor2;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _textColor1 = Theme
-        .of(context)
-        .textTheme
-        .bodyMedium
-        ?.color;
-    _textColor2 = Theme
         .of(context)
         .textTheme
         .bodyMedium
@@ -45,26 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onExit1(PointerEvent details) {
     setState(() {
       _textColor1 = Theme
-          .of(context)
-          .textTheme
-          .bodyMedium
-          ?.color;
-    });
-  }
-
-
-  void _onEnter2(PointerEvent details) {
-    setState(() {
-      _textColor2 = Theme
-          .of(context)
-          .colorScheme
-          .primary;
-    });
-  }
-
-  void _onExit2(PointerEvent details) {
-    setState(() {
-      _textColor2 = Theme
           .of(context)
           .textTheme
           .bodyMedium

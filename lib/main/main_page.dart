@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soft_llama/game/tap_game.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,9 +15,10 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         elevation: 1.5,
         title: const  Center(
-          child: Text('hho'),
+          child: Text('Soft LLaMa'),
         ),
       ),
+      body: const TapGameScreen(),
     );
   }
 }

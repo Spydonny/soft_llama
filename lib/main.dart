@@ -18,26 +18,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        // theme: ThemeData(
-        //   colorScheme: ColorScheme.fromSeed(
-        //     seedColor: Colors.yellow,
-        //   ),
-        //   useMaterial3: true,
-        //   brightness: Brightness.light,
-        //   appBarTheme: const AppBarTheme(
-        //     backgroundColor: Colors.yellow,
-        //     elevation: 0,
-        //   ),
-        //   scaffoldBackgroundColor: Colors.white,
-        //   iconTheme: const IconThemeData(
-        //     color: Colors.yellow,
-        //   ),
-        //   buttonTheme:const ButtonThemeData(
-        //     buttonColor: Colors.yellow,
-        //     textTheme: ButtonTextTheme.primary,
-        //   ),
-        // ),
-
         home: AuthGate(idx: 0)
     );
   }
