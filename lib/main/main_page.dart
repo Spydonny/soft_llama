@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soft_llama/auth/services.dart';
 import 'package:soft_llama/game/tap_game.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,9 +15,16 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 1.5,
-        title: const  Center(
-          child: Text('Soft LLaMa'),
-        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            const SizedBox(width: 5,),
+            const Text('Soft LLaMa'),
+            IconButton(
+              icon: const Icon(Icons.open_in_new),
+                onPressed: AuthService().signOut)
+          ],
+        )
       ),
       body: const TapGameScreen(),
     );

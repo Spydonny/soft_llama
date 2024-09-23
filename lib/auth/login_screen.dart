@@ -14,43 +14,18 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  Color? _textColor1;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _textColor1 = Theme
-        .of(context)
-        .textTheme
-        .bodyMedium
-        ?.color;
   }
-
-  void _onEnter1(PointerEvent details) {
-    setState(() {
-      _textColor1 = Theme
-          .of(context)
-          .colorScheme
-          .primary;
-    });
-  }
-
-  void _onExit1(PointerEvent details) {
-    setState(() {
-      _textColor1 = Theme
-          .of(context)
-          .textTheme
-          .bodyMedium
-          ?.color;
-    });
-  }
-
 
   void login(BuildContext context) async {
     final authService = AuthService();
 
     try {
-      await authService.signInWithEmailPassword(emailController.text, passwordController.text,);
+      await authService.signInWithEmailPassword(
+        emailController.text, passwordController.text,);
     } catch (e) {
       String message = '';
       switch (e.toString()) {
@@ -112,9 +87,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: theme.textTheme.bodyMedium,
               ),
               TextFieldContainer(
-                controller: emailController, label: 'Ваш email', isPassword: false,),
+                controller: emailController,
+                label: 'Ваш email',
+                isPassword: false,),
               TextFieldContainer(
-                controller: passwordController, label: 'Ваш пароль', isPassword: true,),
+                controller: passwordController,
+                label: 'Ваш пароль',
+                isPassword: true,),
               ElevatedButton(
                 style: ButtonStyle(
                     minimumSize: WidgetStateProperty.all<Size>(
@@ -132,25 +111,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   Text('У вас нет аккаунта?   ',
                     style: theme.textTheme.labelSmall,
-                  ),
-                  GestureDetector(
-                    onTap: () =>
+                  ), TextButton(
+                    onPressed: () =>
                         Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                builder: (context) => const AuthGate(idx: 1,)
-                            )
+                          MaterialPageRoute(
+                              builder: (context) => const AuthGate(idx: 1,)
+                          ),
                         ),
-                    child: MouseRegion(
-                      onEnter: _onEnter1,
-                      onExit: _onExit1,
-                      child: Text('Зарегестрируйтесь',
-                        style: TextStyle(
-                            fontSize: theme.textTheme.bodyMedium?.fontSize,
-                            color: _textColor1
-                        ),
-                      ),
+                    child: Text('Зарегестрируйтесь',
+                      style: theme.textTheme.bodyMedium,
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 2,)

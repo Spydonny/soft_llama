@@ -142,7 +142,7 @@ class _SignupScreenState extends State<SignupScreen> {
               TextFieldContainer(
                 controller: lastnameController, label: 'Ваша фамилия', isPassword: false,),
               TextFieldContainer(
-                controller: emailController, label: 'Ваш класс', isPassword: false,),
+                controller: gradeController, label: 'Ваш класс', isPassword: false,),
               TextFieldContainer(
                 controller: emailController, label: 'Ваш email', isPassword: false,),
               TextFieldContainer(
