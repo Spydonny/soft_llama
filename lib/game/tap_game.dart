@@ -23,8 +23,12 @@ class _TapGameScreenState extends State<TapGameScreen> {
 
   void _moveTarget() {
     setState(() {
-      targetX = (100 + (300 - 100) * (0.1 + 0.8 * (DateTime.now().millisecond / 1000)));
-      targetY = (100 + (400 - 100) * (0.1 + 0.8 * (DateTime.now().second / 60)));
+      targetX = (100 + (300 - 100) * (0.1 + 0.8 * (DateTime
+          .now()
+          .millisecond / 1000)));
+      targetY = (100 + (400 - 100) * (0.1 + 0.8 * (DateTime
+          .now()
+          .second / 60)));
     });
   }
 
@@ -38,51 +42,46 @@ class _TapGameScreenState extends State<TapGameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tap Game'),
-      ),
-      body: Stack(
-        children: [
-          GestureDetector(
-            onTap: onTap,
-            child: Container(
-              color: Colors.white,
-              child: Center(
-                child: gameStarted
-                    ? Stack(
-                  children: [
-                    Positioned(
-                      left: targetX,
-                      top: targetY,
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
+    return Stack(
+      children: [
+        Container(
+          color: Colors.white,
+          child: Center(
+            child: gameStarted
+                ? Stack(
+              children: [
+                Positioned(
+                  left: targetX,
+                  top: targetY,
+                  child: GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(25),
                       ),
                     ),
-                  ],
+                  ),
                 )
-                    : ElevatedButton(
-                  onPressed: startGame,
-                  child: const Text("Start Game"),
-                ),
-              ),
+              ],
+            )
+                : ElevatedButton(
+              onPressed: startGame,
+              child: const Text("Start Game"),
             ),
           ),
-          Positioned(
-            top: 30,
-            right: 20,
-            child: Text(
-              'Score: $score',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+        ),
+        Positioned(
+          top: 30,
+          right: 20,
+          child: Text(
+            'Score: $score',
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

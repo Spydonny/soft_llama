@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:soft_llama/auth/services.dart';
+import 'package:soft_llama/messages/message_screen.dart';
+import 'package:soft_llama/services.dart';
 import 'package:soft_llama/game/tap_game.dart';
 
 class MainPage extends StatefulWidget {
@@ -10,6 +11,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+  final List<Widget> screens = [const TapGameScreen(), const MessageScreen()];
+  int _sIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,28 @@ class _MainPageState extends State<MainPage> {
           ],
         )
       ),
-      body: const TapGameScreen(),
+      body: screens[_sIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.games_outlined),
+              label: 'Тапалка',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.messenger),
+              label: 'Вопросы к боссу',
+            ),
+          ],
+        currentIndex: _sIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: (int i) {
+          setState(() {
+            _sIndex = i;
+          });
+        },
+
+      ),
     );
   }
 }
+

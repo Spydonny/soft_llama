@@ -17,8 +17,15 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        home: AuthGate(idx: 0)
+    return MaterialApp(
+      theme: ThemeData.light(
+        useMaterial3: true,
+      ).copyWith(
+        inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: OutlineInputBorder()
+        )
+      ),
+        home: const AuthGate(idx: 1)
     );
   }
 }
